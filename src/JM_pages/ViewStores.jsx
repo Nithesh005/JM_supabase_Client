@@ -35,59 +35,64 @@ const ViewStores = () => {
   };
 
   return (
-    <div style={{ padding: '16px' }}>
-      <h2>View Stores</h2>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+      <h2 className="text-2xl font-semibold mb-6">View Stores</h2>
       {fetchedData.length > 0 ? (
-        <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Date & Time</th>
-              <th>Name</th>
-              <th>Update</th>
-              <th>Delete</th>
-              <th>Order ID</th>
-            </tr>
-          </thead>
-          <tbody>
-            {fetchedData.map((data) => (
-              <tr key={data.id}>
-                <td>{data.id}</td>
-                <td>{new Date(data.created_at).toLocaleString()}</td>
-                <td>{data.name || 'No Name'}</td>
-                <td>
-                  <button
-                    onClick={() =>
-                      navigate('/edit-stores', {
-                        state: { id: data.id, createdAt: data.created_at, name: data.name },
-                      })
-                    }
-                  >
-                    Edit
-                  </button>
-                </td>
-                <td>
-                  <button
-                    onClick={async () => {
-                      const confirm = window.confirm('Are you sure you want to delete this record?');
-                      if (confirm) {
-                        await deleteData(data.id);
-                      }
-                    }}
-                  >
-                    Delete
-                  </button>
-                </td>
-                <td>{data.order_id}</td>
+        <div className="overflow-x-auto w-full max-w-3xl bg-white rounded-lg shadow-md">
+          <table className="min-w-full bg-white border border-gray-200">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="py-2 px-4 border-b text-left text-gray-600">ID</th>
+                <th className="py-2 px-4 border-b text-left text-gray-600">Date & Time</th>
+                <th className="py-2 px-4 border-b text-left text-gray-600">Name</th>
+                <th className="py-2 px-4 border-b text-left text-gray-600">Update</th>
+                <th className="py-2 px-4 border-b text-left text-gray-600">Delete</th>
+                <th className="py-2 px-4 border-b text-left text-gray-600">Order ID</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {fetchedData.map((data) => (
+                <tr key={data.id} className="hover:bg-gray-100">
+                  <td className="py-2 px-4 border-b">{data.id}</td>
+                  <td className="py-2 px-4 border-b">{new Date(data.created_at).toLocaleString()}</td>
+                  <td className="py-2 px-4 border-b">{data.name || 'No Name'}</td>
+                  <td className="py-2 px-4 border-b">
+                    <button
+                      onClick={() =>
+                        navigate('/edit-stores', {
+                          state: { id: data.id, createdAt: data.created_at, name: data.name },
+                        })
+                      }
+                      className="text-blue-500 hover:underline"
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td className="py-2 px-4 border-b">
+                    <button
+                      onClick={async () => {
+                        const confirm = window.confirm('Are you sure you want to delete this record?');
+                        if (confirm) {
+                          await deleteData(data.id);
+                        }
+                      }}
+                      className="text-red-500 hover:underline"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                  <td className="py-2 px-4 border-b">{data.order_id}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       ) : (
-        <p>No data available</p>
+        <div className="mt-4 text-gray-500">No data available</div>
       )}
     </div>
   );
+  
 };
 
 export default ViewStores;

@@ -32,25 +32,31 @@ const EditStoresPage = () => {
   };
 
   return (
-    <div style={{ padding: '16px' }}>
-      <h2>Edit Data</h2>
-      <div>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={nameValue}
-            onChange={(e) => setNameValue(e.target.value)} // Update state on change
-            placeholder="Name"
-            style={{ marginLeft: '8px', width: '100%' }}
-          />
-        </label>
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+      <h2 className="text-2xl font-semibold mb-6">Edit Data</h2>
+      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+        <div className="mb-4">
+          <label className="block text-gray-700 mb-1">
+            Name:
+            <input
+              type="text"
+              value={nameValue}
+              onChange={(e) => setNameValue(e.target.value)} // Update state on change
+              placeholder="Name"
+              className="mt-1 p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </label>
+        </div>
+        <button
+          onClick={updateData}
+          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200"
+        >
+          Update
+        </button>
       </div>
-      <button onClick={updateData} style={{ marginTop: '20px' }}>
-        Update
-      </button>
     </div>
   );
+  
 };
 
 export default EditStoresPage;

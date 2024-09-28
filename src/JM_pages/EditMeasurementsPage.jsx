@@ -40,47 +40,67 @@ const EditMeasurementsPage = () => {
   };
 
   return (
-    <div style={{ padding: '16px' }}>
-      <h1>Edit Measurements</h1>
-      <div>
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          value={lengthValue}
-          onChange={(e) => setlengthValue(e.target.value)} // Update state on input change
-        />
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+      <h1 className="text-2xl font-semibold mb-6">Edit Measurements</h1>
+      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+        <div className="mb-4">
+          <label htmlFor="name" className="block text-gray-700 mb-1">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            value={lengthValue}
+            onChange={(e) => setLengthValue(e.target.value)} // Update state on input change
+            className="mt-1 p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="breadth" className="block text-gray-700 mb-1">
+            Breadth
+          </label>
+          <input
+            type="text"
+            id="breadth"
+            value={breadthValue}
+            onChange={(e) => setBreadthValue(e.target.value)} // Update state on input change
+            className="mt-1 p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="width" className="block text-gray-700 mb-1">
+            Width
+          </label>
+          <input
+            type="text"
+            id="width"
+            value={widthValue}
+            onChange={(e) => setWidthValue(e.target.value)} // Update state on input change
+            className="mt-1 p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="storeId" className="block text-gray-700 mb-1">
+            Store ID
+          </label>
+          <input
+            type="text"
+            id="storeId"
+            value={storeIdValue}
+            onChange={(e) => setStoreIdValue(e.target.value)} // Update state on input change
+            className="mt-1 p-2 border rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <button
+          onClick={updateData}
+          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-200"
+        >
+          Update
+        </button>
       </div>
-      <div>
-        <label htmlFor="breadth">Breadth</label>
-        <input
-          type="text"
-          id="breadth"
-          value={breadthValue}
-          onChange={(e) => setBreadthValue(e.target.value)} // Update state on input change
-        />
-      </div>
-      <div>
-        <label htmlFor="width">Width</label>
-        <input
-          type="text"
-          id="width"
-          value={widthValue}
-          onChange={(e) => setWidthValue(e.target.value)} // Update state on input change
-        />
-      </div>
-      <div>
-        <label htmlFor="storeId">Store ID</label>
-        <input
-          type="text"
-          id="storeId"
-          value={storeIdValue}
-          onChange={(e) => setStoreIdValue(e.target.value)} // Update state on input change
-        />
-      </div>
-      <button onClick={updateData}>Update</button>
     </div>
   );
+  
 };
 
 export default EditMeasurementsPage;

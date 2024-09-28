@@ -63,52 +63,59 @@ const ViewMeasurements = () => {
     };
 
     return (
-        <div style={{ padding: '16px' }}>
-            <h1>View Measurements</h1>
-            {fetchedData.length > 0 ? (
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Date & Time</th>
-                            <th>Length</th>
-                            <th>Breadth</th>
-                            <th>Width</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                            <th>Store ID</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {fetchedData.map((data) => (
-                            <tr key={data.id}>
-                                <td>{data.id}</td>
-                                <td>{data.created_at.split('T')[0]}</td>
-                                <td>{data.length || 'empty'}</td>
-                                <td>{data.breadth || 'empty'}</td>
-                                <td>{data.width || 'empty'}</td>
-                                <td>
-                                    <button onClick={() => handleEdit(data)}>
-                                        edit
-                                        <i className="fas fa-edit"></i> {/* Font Awesome edit icon */}
-                                    </button>
-                                </td>
-                                <td>
-                                    <button onClick={() => handleDelete(data.id)}>
-                                        delete
-                                        <i className="fas fa-trash"></i> {/* Font Awesome delete icon */}
-                                    </button>
-                                </td>
-                                <td>{data.store_id}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            ) : (
-                <p>No data available</p>
-            )}
+        <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+          <h1 className="text-2xl font-semibold mb-6">View Measurements</h1>
+          {fetchedData.length > 0 ? (
+            <div className="overflow-x-auto w-full max-w-3xl bg-white rounded-lg shadow-md">
+              <table className="min-w-full bg-white border border-gray-200">
+                <thead>
+                  <tr className="bg-gray-200">
+                    <th className="py-2 px-4 border-b text-left text-gray-600">ID</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Date & Time</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Length</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Breadth</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Width</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Edit</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Delete</th>
+                    <th className="py-2 px-4 border-b text-left text-gray-600">Store ID</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {fetchedData.map((data) => (
+                    <tr key={data.id} className="hover:bg-gray-100">
+                      <td className="py-2 px-4 border-b">{data.id}</td>
+                      <td className="py-2 px-4 border-b">{data.created_at.split('T')[0]}</td>
+                      <td className="py-2 px-4 border-b">{data.length || 'empty'}</td>
+                      <td className="py-2 px-4 border-b">{data.breadth || 'empty'}</td>
+                      <td className="py-2 px-4 border-b">{data.width || 'empty'}</td>
+                      <td className="py-2 px-4 border-b">
+                        <button
+                          onClick={() => handleEdit(data)}
+                          className="text-blue-500 hover:underline flex items-center"
+                        >
+                          Edit <i className="fas fa-edit ml-1"></i>
+                        </button>
+                      </td>
+                      <td className="py-2 px-4 border-b">
+                        <button
+                          onClick={() => handleDelete(data.id)}
+                          className="text-red-500 hover:underline flex items-center"
+                        >
+                          Delete <i className="fas fa-trash ml-1"></i>
+                        </button>
+                      </td>
+                      <td className="py-2 px-4 border-b">{data.store_id}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <div className="mt-4 text-gray-500">No data available</div>
+          )}
         </div>
-    );
+      );
+      
 };
 
 export default ViewMeasurements;

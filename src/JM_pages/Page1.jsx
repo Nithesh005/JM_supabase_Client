@@ -20,7 +20,7 @@ const Page1 = () => {
   const handleCreateOrder = async () => {
     console.log('Create Orders Form Data:', formData1);
     const response = await insertOrders(formData1);
-    
+
     if (response) {
       toast.success("Order created successfully!");
     }
@@ -30,7 +30,7 @@ const Page1 = () => {
   const handleAddMeasurements = async () => {
     console.log('Add Measurements Form Data:', formData3);
     const response = await insertMeasurements(formData3);
-    
+
     if (response) {
       toast.success("Measurements added successfully!");
     }
@@ -67,53 +67,69 @@ const Page1 = () => {
   };
 
   return (
-    <div style={{ padding: '16px' }}>
-      {/* <h2>Create New Orders</h2> */}
-
-      {/* Dropdown to select the form */}
-      <select value={selectedOption} onChange={(e) => setSelectedOption(e.target.value)}>
-        <option value="Create Orders">Create Orders</option>
-        {/* <option value="Add Measurements">Add Measurements</option> */}
-      </select>
-
-      {/* Display input fields based on dropdown selection */}
-      {selectedOption === 'Create Orders' && (
-        <div>
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            onChange={handleInputChange1}
-          />
-          <button onClick={handleCreateOrder}>Create</button>
-        </div>
-      )}
-      
-      {selectedOption === 'Add Measurements' && (
-        <div>
-          <input
-            type="text"
-            name="length"
-            placeholder="Length"
-            onChange={handleInputChange3}
-          />
-          <input
-            type="text"
-            name="breath"
-            placeholder="Breath"
-            onChange={handleInputChange3}
-          />
-          <input
-            type="text"
-            name="width"
-            placeholder="Width"
-            onChange={handleInputChange3}
-          />
-          <button onClick={handleAddMeasurements}>Submit</button>
-        </div>
-      )}
+    <div className="flex items-center justify-center h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-xl font-semibold mb-4">Record Management</h1>
+        <select
+          value={selectedOption}
+          onChange={(e) => setSelectedOption(e.target.value)}
+          className="mb-4 p-2 border rounded"
+        >
+          <option value="Create Orders">Create Orders</option>
+          {/* <option value="Add Measurements">Add Measurements</option> */}
+        </select>
+        {selectedOption === 'Create Orders' && (
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              onChange={handleInputChange1}
+              className="mb-4 p-2 border rounded w-full"
+            />
+            <button
+              onClick={handleCreateOrder}
+              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            >
+              Create
+            </button>
+          </div>
+        )}
+        {selectedOption === 'Add Measurements' && (
+          <div>
+            <input
+              type="text"
+              name="length"
+              placeholder="Length"
+              onChange={handleInputChange3}
+              className="mb-4 p-2 border rounded w-full"
+            />
+            <input
+              type="text"
+              name="breath"
+              placeholder="Breath"
+              onChange={handleInputChange3}
+              className="mb-4 p-2 border rounded w-full"
+            />
+            <input
+              type="text"
+              name="width"
+              placeholder="Width"
+              onChange={handleInputChange3}
+              className="mb-4 p-2 border rounded w-full"
+            />
+            <button
+              onClick={handleAddMeasurements}
+              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+            >
+              Submit
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
+
 };
 
 export default Page1;
