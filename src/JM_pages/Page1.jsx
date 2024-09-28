@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify'; // Make sure to install react-toastify
 import { supabase } from '../Service/supabaseClient';
+import { Alert, Button, Snackbar } from '@mui/material';
 const Page1 = () => {
   const [selectedOption, setSelectedOption] = useState('Create Orders'); // Default dropdown value
   const [formData1, setFormData1] = useState({ name: '' });
   const [formData3, setFormData3] = useState({ length: '', breath: '', width: '' });
+  const [open, setOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
 
   // Handle input changes for Create Orders form
   const handleInputChange1 = (e) => {
@@ -16,13 +19,29 @@ const Page1 = () => {
     setFormData3({ ...formData3, [e.target.name]: e.target.value });
   };
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+  const action = (
+    <Button color="inherit" onClick={handleClose}>
+      Close
+    </Button>
+  );
+
   // Submit function for Create Orders
   const handleCreateOrder = async () => {
     console.log('Create Orders Form Data:', formData1);
     const response = await insertOrders(formData1);
+    console.log("response", response);
 
     if (response) {
+      setSnackbarMessage("Order created successfully!");
+      setOpen(true);
       toast.success("Order created successfully!");
+      setFormData1({ name: '' });
     }
   };
 
@@ -67,65 +86,78 @@ const Page1 = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-        <h1 className="text-xl font-semibold mb-4">Record Management</h1>
-        <select
-          value={selectedOption}
-          onChange={(e) => setSelectedOption(e.target.value)}
-          className="mb-4 p-2 border rounded"
-        >
-          <option value="Create Orders">Create Orders</option>
-          {/* <option value="Add Measurements">Add Measurements</option> */}
-        </select>
-        {selectedOption === 'Create Orders' && (
-          <div>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={handleInputChange1}
-              className="mb-4 p-2 border rounded w-full"
-            />
-            <button
-              onClick={handleCreateOrder}
-              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            >
-              Create
-            </button>
-          </div>
-        )}
-        {selectedOption === 'Add Measurements' && (
-          <div>
-            <input
-              type="text"
-              name="length"
-              placeholder="Length"
-              onChange={handleInputChange3}
-              className="mb-4 p-2 border rounded w-full"
-            />
-            <input
-              type="text"
-              name="breath"
-              placeholder="Breath"
-              onChange={handleInputChange3}
-              className="mb-4 p-2 border rounded w-full"
-            />
-            <input
-              type="text"
-              name="width"
-              placeholder="Width"
-              onChange={handleInputChange3}
-              className="mb-4 p-2 border rounded w-full"
-            />
-            <button
-              onClick={handleAddMeasurements}
-              className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
-            >
-              Submit
-            </button>
-          </div>
-        )}
+    <div className="fullContainer">
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="success">
+          {snackbarMessage}
+        </Alert>
+      </Snackbar>
+      <div className="flex items-center justify-center h-screen bg-gray-100">
+
+        <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+          <h1 className="text-xl font-semibold mb-4">Record Management</h1>
+          <select
+            value={selectedOption}
+            onChange={(e) => setSelectedOption(e.target.value)}
+            className="mb-4 p-2 border rounded"
+          >
+            <option value="Create Orders">Create Orders</option>
+            {/* <option value="Add Measurements">Add Measurements</option> */}
+          </select>
+          {selectedOption === 'Create Orders' && (
+            <div>
+              <input
+                type="text"
+                name="name"
+                value={formData1.name}
+                placeholder="Name"
+                onChange={handleInputChange1}
+                className="mb-4 p-2 border rounded w-full"
+              />
+              <button
+                onClick={handleCreateOrder}
+                className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+              >
+                Create
+              </button>
+            </div>
+          )}
+          {selectedOption === 'Add Measurements' && (
+            <div>
+              <input
+                type="text"
+                name="length"
+                placeholder="Length"
+                onChange={handleInputChange3}
+                className="mb-4 p-2 border rounded w-full"
+              />
+              <input
+                type="text"
+                name="breath"
+                placeholder="Breath"
+                onChange={handleInputChange3}
+                className="mb-4 p-2 border rounded w-full"
+              />
+              <input
+                type="text"
+                name="width"
+                placeholder="Width"
+                onChange={handleInputChange3}
+                className="mb-4 p-2 border rounded w-full"
+              />
+              <button
+                onClick={handleAddMeasurements}
+                className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+              >
+                Submit
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
