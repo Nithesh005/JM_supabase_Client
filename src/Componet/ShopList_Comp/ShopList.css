@@ -1,0 +1,52 @@
+.shop-list {
+    margin: 10px 0;
+}
+
+.shop-name {
+    /* background-color: #B3261E; */
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #B3261E;
+}
+
+.shop-name .arrow {
+    transition: transform 0.3s ease;
+}
+
+.shop-name .arrow.open {
+    transform: rotate(180deg);
+}
+
+.branches {
+    background-color: #FCEEEE;
+    padding: 10px;
+    border-bottom: 1px solid #B3261E;
+}
+
+.branch-card {
+    background-color: #FCEEEE;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 3px;
+    /* transition: transform 0.3s ease; */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    /* border-bottom: 1px solid #B3261E; */
+    cursor: url('../../assets/Logo/curser.png'), pointer;
+}
+
+.branch-card:hover {
+    transform: translateX(10px);
+}
+    
+
+.branch-icon {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   
+  }

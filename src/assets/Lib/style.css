@@ -1,0 +1,48 @@
+.df{
+    display: flex;
+}
+.aic{
+    align-items: center;
+}
+.tac{
+    text-align: center;
+}
+.jcc{
+    justify-content: center;
+}
+.jcsb{
+    justify-content: space-between;
+}
+.fdc{
+    flex-direction: column;
+}
+.nw{
+    text-wrap: nowrap;
+}
+.g1r{
+    gap: 1rem;
+}
+.p1r{
+    padding: 1rem;
+}
+.jce{
+    justify-content: end;
+}
+.p3r{
+    padding: 3rem;
+}
+.b{
+    font-weight: bold;
+}
+.cw{
+    color: white;
+}
+.aie{
+    align-items: end;
+}
+.jcsa{
+    justify-content: space-around;
+}
+.w100p{
+    width: 100%;
+}

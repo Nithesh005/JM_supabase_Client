@@ -1,0 +1,97 @@
+/* Job Details first Card Content  */
+.Pro_name_data {
+    color: #B3261E;
+    text-transform: uppercase;
+}
+
+.n-w {
+    text-wrap: nowrap;
+}
+
+
+.glu-card-container-2 {
+    background-color: #FCEEEE;
+    padding: 2rem;
+}
+
+.glu-card-container-1 {
+    background-color: #FCEEEE;
+    padding: 2rem;
+}
+
+.glu-card-container-1-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Glu-Button-box {
+    justify-content: center;
+}
+
+.Glu-Button {
+    background-color: #B3261E;
+}
+
+.clr-black {
+    color: black;
+    font-style: bold;
+    font-weight: 500;
+}
+
+.Overallcontainer {
+    border: solid 2px #B3261E;
+    /* border-radius: 5%; */
+}
+.Cont-card{
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+
+}
+
+.g-1rm{
+    padding: 1rem;
+}
+.g-05rm{
+    padding: 1rem;
+}
+
+
+/* Job Details Measurements */
+
+.second-potion {
+    /* padding: 2rem; */
+}
+
+.Details-content {
+    border-radius: 5%;
+    border: solid 2px #B3261E; 
+    /* background-color: #FCEEEE; */
+    flex-direction: column;
+    row-gap: 1vw;
+
+}
+
+.details-head {
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.data-part {
+    gap: 1vw;
+    padding: 1rem;
+    justify-content: center;
+    /* flex-direction: row; */
+}
+.data-aligh-end{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: end;
+}
+.data-font{
+    font-size: larger;
+    font-style: bold;
+    font-weight: 700;
+    text-transform: uppercase;
+}

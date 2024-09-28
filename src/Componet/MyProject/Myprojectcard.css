@@ -1,0 +1,211 @@
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .PR_name--PR_id {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .projectname {
+        color: #B3261E;
+        font-size: 30px;
+    }
+
+    .Product_id {
+        color: #828282;
+        font-size: xx-small;
+    }
+
+    .Client_name {
+        color: #828282;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .Button-container {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: end;
+    }
+
+    .Red-btn {
+        width: 50%;
+    }
+
+    .Blue-btn {
+        width: 15%;
+        background-color: rgba(103, 80, 164, 0.11);
+    }
+
+    .CEName {
+        margin: 10px 0;
+    }
+
+    .box-text {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .box-text1 {
+        width: 65%;
+        border: 1px solid #B3261E;
+        height: 20vh;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sub-head {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        color: #625B71;
+        width: 100%;
+        padding: 0px 5px 0px 5px;
+    }
+
+    .sub-head1 {
+        font-size: small;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        padding: 10px 5px 10px 5px;
+    }
+
+    .box-text2 {
+        width: 30%;
+        height: 20vh;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 10px 0px 10px 0px;
+    }
+
+    .alighdata {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .alighicon {
+        display: flex;
+        justify-content: start;
+    }
+
+    .--dat {
+        font-size: small;
+        font-weight: 600;
+    }
+
+
+
+    /* Small devices (portrait tablets and large phones, 600px and up) */
+    @media only screen and (min-width: 600px) {
+        .sub-head {
+            font-size: 12.5px;
+        }
+
+        .sub-head1 {
+            font-size: 11px;
+        }
+
+        .Red-btn {
+            width: 50%;
+        }
+
+        .--dat {
+            font-size: x-small;
+            font-weight: 700;
+        }
+
+    }
+
+    @media only screen and (min-width: 300px) {
+        .sub-head {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px;
+        }
+
+        .sub-head1 {
+            font-size: 12px;
+        }
+
+        .Red-btn {
+            width: 50%;
+        }
+
+        .--dat {
+            font-size: xx-small;
+            font-weight: 700;
+        }
+        .projectname {
+            font-size: large;
+        }
+    }
+
+    /* Medium devices (landscape tablets, 768px and up) */
+    @media only screen and (min-width: 768px) {
+        .sub-head {
+            font-size: 12.5px;
+        }
+
+        .sub-head1 {
+            font-size: 11px;
+        }
+
+        .Red-btn {
+            width: 50%;
+        }
+
+        .--dat {
+            font-size: x-small;
+            font-weight: 700;
+        }
+    }
+
+    /* Large devices (laptops/desktops, 992px and up) */
+    @media only screen and (min-width: 992px) {
+        .sub-head {
+            font-size: 12.5px;
+        }
+
+        .sub-head1 {
+            font-size: 11px;
+        }
+
+        .Red-btn {
+            width: 50%;
+        }
+
+        .--dat {
+            font-size: x-small;
+            font-weight: 700;
+        }
+    }
+
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    @media only screen and (min-width: 1200px) {
+        .sub-head {
+            font-size: 15px;
+        }
+
+        .sub-head1 {
+            font-size: small;
+        }
+        .Red-btn {
+            width: 50%;
+        }
+    }

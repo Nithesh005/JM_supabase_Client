@@ -1,0 +1,2 @@
+const CURRENT_USER = '1001';
+export {CURRENT_USER};
