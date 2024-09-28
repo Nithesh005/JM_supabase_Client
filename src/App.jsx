@@ -33,7 +33,7 @@ function App() {
           >
             <Toolbar />
             <Routes>
-              <Route path="/" element={<LiveProject />} />
+              <Route path="/" element={<Page1 />} />
               {/* <Route path="/liveproject" element={<LiveProject />} />
               <Route path="/myproject" element={<MyProject />} />
               <Route path="/completedjobs" element={<Completedjob />} />
